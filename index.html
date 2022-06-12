@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Location</title>
+</head>
+<body>
+    <h1>Hello world</h1>
+    <button id="btn">GET LOCATION</button>
+    <details>
+        <summary>see user Location</summary>
+        <p id="lat">#</p>
+        <p id="lon">#</p>
+    </details>
+</body>
+</html>
+<script>
+var lat = document.getElementById("lat").innerHTML;
+var lon = document.getElementById("lon").innerHTML;
+var btns = document.getElementById("btn");
+const getLocation=()=>{
+    if(navigator.geolocation){
+          navigator.geolocation.getCurrentPosition(function(position){
+              console.log("Hey");
+            lon = position.coords.longitude;
+            lat = position.coords.latitude;
+
+          })
+        }
+}
+btns.addEventListener("click",function(){
+    getLocation();
+    console.log("Hey")
+})
+</script>
